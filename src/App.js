@@ -16,6 +16,8 @@ function App() {
 
   let [pushtitle, setpushtitle] = useState(0);
 
+  let [inptext, setinptext] = useState("");
+
   function titlechange() {
     let newArray = [...title];
     newArray = newArray.sort();
@@ -23,16 +25,16 @@ function App() {
   }
 
   let posts = "강남 고기 맛집";
+
   return (
     <div className="App">
       <div className="black-nav">
         <div>개발 blog</div>
       </div>
       <button onClick={titlechange}>버튼</button>
-
       {title.map(function (a, i) {
         return (
-          <div className="list">
+          <div className="list" key={i}>
             <h3
               onClick={() => {
                 setpushtitle(i);
@@ -53,6 +55,13 @@ function App() {
           </div>
         );
       })}
+
+      {/* {inptext}
+      <input
+        onChange={(e) => {
+          setinptext(e.target.value);
+        }}
+      ></input> */}
 
       {modal == true ? <Modal title={title} pushtitle={pushtitle} /> : null}
       <button
