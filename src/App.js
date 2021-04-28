@@ -4,7 +4,7 @@ import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  let [title, settite] = useState([
+  let [title, settitle] = useState([
     "리액트 포스트",
     "즐겨찾기순위",
     "강의사이트추천",
@@ -18,10 +18,12 @@ function App() {
 
   let [inptext, setinptext] = useState("");
 
+  let [save, setsave] = useState("");
+
   function titlechange() {
     let newArray = [...title];
     newArray = newArray.sort();
-    settite(newArray);
+    settitle(newArray);
   }
 
   let posts = "강남 고기 맛집";
@@ -62,7 +64,31 @@ function App() {
           setinptext(e.target.value);
         }}
       ></input> */}
-
+      <div className="publish">
+        <input
+          onChange={(e) => {
+            setsave(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            let arrayCopy = [...title];
+            arrayCopy.unshift(save);
+            settitle(arrayCopy);
+          }}
+        >
+          저장
+        </button>
+        <button
+          onClick={() => {
+            let arrayCopy = [...title];
+            arrayCopy.shift(save);
+            settitle(arrayCopy);
+          }}
+        >
+          삭제
+        </button>
+      </div>
       {modal == true ? <Modal title={title} pushtitle={pushtitle} /> : null}
       <button
         onClick={() => {
@@ -71,6 +97,7 @@ function App() {
       >
         버튼
       </button>
+      <Profile />
     </div>
   );
 }
@@ -83,6 +110,40 @@ function Modal(props) {
       <p>상세내용</p>
     </div>
   );
+}
+
+class Profile extends React.Component {
+  constructor() {
+    super();
+    this.state = { name: "kim", age: 30 };
+  }
+
+  changeName = () => {
+    this.setState({ name: "Park" });
+  };
+
+  render() {
+    return (
+      <div>
+        <div>프로필입니다</div>
+        <p>저는{this.state.name} 입니다.</p>
+        {/* <button
+          onClick={() => {
+            this.setState({ name: "Park" });
+          }}
+        >
+          프로필버튼
+        </button> */}
+        <button
+          onClick={() => {
+            this.changeName;
+          }}
+        >
+          프로필버튼
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
