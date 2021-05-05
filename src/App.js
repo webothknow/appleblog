@@ -112,38 +112,38 @@ function Modal(props) {
   );
 }
 
-class Profile extends React.Component {
-  constructor() {
-    super();
-    this.state = { name: "kim", age: 30 };
-  }
+// class Profile extends React.Component {
+//   constructor() {
+//     super();
+//     this.state = { name: "kim", age: 30 };
+//   }
 
-  changeName = () => {
-    this.setState({ name: "Park" });
-  };
+//   changeName = () => {
+//     this.setState({ name: "Park" });
+//   };
 
-  render() {
-    return (
-      <div>
-        <div>프로필입니다</div>
-        <p>저는{this.state.name} 입니다.</p>
-        {/* <button
-          onClick={() => {
-            this.setState({ name: "Park" });
-          }}
-        >
-          프로필버튼
-        </button> */}
-        <button
-          onClick={() => {
-            this.changeName;
-          }}
-        >
-          프로필버튼
-        </button>
-      </div>
-    );
-  }
-}
+//   render() {
+//     return (
+//       <div>
+//         <div>프로필입니다</div>
+//         <p>저는{this.state.name} 입니다.</p>
+//         {/* <button
+//           onClick={() => {
+//             this.setState({ name: "Park" });
+//           }}
+//         >
+//           프로필버튼
+//         </button> */}
+//         <button
+//           onClick={() => {
+//             this.changeName;
+//           }}
+//         >
+//           프로필버튼
+//         </button>
+//       </div>
+//     );
+//   }
+// }
 
 export default App;
